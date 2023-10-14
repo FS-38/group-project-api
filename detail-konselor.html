@@ -28,6 +28,11 @@
       rel="stylesheet"
       href="./css/pesan-bayar/assets/compiled/css/iconly.css"
     />
+
+    <link
+      rel="stylesheet"
+      href="./css/pesan-bayar/assets/detail-konselor.css"
+    />
   </head>
 
   <body>
@@ -148,11 +153,11 @@
                 <div class="row">
                   <div class="col-6">
                     <h5>Nama Konselor</h5>
-                    <p class="mb-2">Spesialis</p>
-                    <p>Tarif Konseling</p>
+                    <h5 class="mb-2">Spesialis</h5>
+                    <h5>Tarif Konseling</h5>
                   </div>
                   <div class="col-6">
-                    <h5>Dr. Konselor</h5>
+                    <p>Dr. Konselor</p>
                     <p class="mb-2">Psikolog</p>
                     <p>Rp. 50.000,00 / jam</p>
                   </div>
@@ -160,7 +165,7 @@
                   <div class="col-12 mt-3">
                     <h5>Jadwal Tersedia</h5>
                     <div class="table-responsive">
-                      <table class="table table-bordered mb-0">
+                      <table class="table table-bordered mb-0 table-hover">
                         <thead>
                           <tr>
                             <th>No</th>
@@ -209,6 +214,126 @@
                 </div>
               </div>
             </div>
+            <div class="col-12 mt-5">
+              <h4>Konselor Lainnya</h4>
+              <div id="carouselExampleControls" class="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="card">
+                      <div class="card-content">
+                        <img
+                          src="https://source.unsplash.com/300x300"
+                          class="card-img-top px-3 pt-3 rounded-5 ratio-1x1 object-fit-contain"
+                          alt="singleminded"
+                        />
+                        <div class="card-body">
+                          <h5 class="card-title">Konselor A</h5>
+                          <p class="card-text">Rp. 200.000 / hour</p>
+                          <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="card">
+                      <div class="card-content">
+                        <img
+                          src="https://source.unsplash.com/300x303"
+                          class="card-img-top px-3 pt-3 rounded-5 ratio-1x1 object-fit-contain"
+                          alt="singleminded"
+                          width="50"
+                        />
+                        <div class="card-body">
+                          <h5 class="card-title">Konselor B</h5>
+                          <p class="card-text">Rp. 200.000 / hour</p>
+                          <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="card">
+                      <div class="card-content">
+                        <img
+                          src="https://source.unsplash.com/300x302"
+                          class="card-img-top px-3 pt-3 rounded-5 ratio-1x1 object-fit-contain"
+                          alt="singleminded"
+                        />
+                        <div class="card-body">
+                          <h5 class="card-title">Konselor C</h5>
+                          <p class="card-text">Rp. 200.000 / hour</p>
+                          <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="card">
+                      <div class="card-content">
+                        <img
+                          src="https://source.unsplash.com/300x301"
+                          class="card-img-top px-3 pt-3 rounded-5 ratio-1x1 object-fit-contain"
+                          alt="singleminded"
+                        />
+                        <div class="card-body">
+                          <h5 class="card-title">Konselor D</h5>
+                          <p class="card-text">Rp. 200.000 / hour</p>
+                          <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <a
+                  class="carousel-control-prev"
+                  href="#carouselExampleControls"
+                  role="button"
+                  data-bs-slide="prev"
+                >
+                  <span
+                    class="carousel-control-prev-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="visually-hidden">Previous</span>
+                </a>
+                <a
+                  class="carousel-control-next"
+                  href="#carouselExampleControls"
+                  role="button"
+                  data-bs-slide="next"
+                >
+                  <span
+                    class="carousel-control-next-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="visually-hidden">Next</span>
+                </a>
+              </div>
+            </div>
           </section>
         </div>
 
@@ -235,8 +360,11 @@
 
     <script src="./css/pesan-bayar/assets/compiled/js/app.js"></script>
 
+    <script src="css/pesan-bayar/assets/extensions/jquery/jquery.min.js"></script>
+
     <!-- Need: Apexcharts -->
     <script src="./css/pesan-bayar/assets/extensions/apexcharts/apexcharts.min.js"></script>
     <script src="./css/pesan-bayar/assets/static/js/pages/dashboard.js"></script>
+    <script src="./js/detailKonselor.js"></script>
   </body>
 </html>

@@ -30,6 +30,10 @@ const rupiah = (number) => {
   }).format(number);
 };
 
+function clickCard(data) {
+  console.log((data));
+}
+
 getKonselor().then((data) => {
   data.map((konselor) => {
     const konselorImage = [
@@ -39,7 +43,7 @@ getKonselor().then((data) => {
     ];
     const konselorCard = `
             <div class="col-12 col-md-3">
-              <div class="card shadow-lg" style="cursor: pointer;">
+              <div class="card shadow-lg" style="cursor: pointer;" onclick='clickCard(${JSON.stringify(konselor)})'>
                 <div class="card-content">
                   <img
                     src="${getRandomItem(konselorImage)}"
