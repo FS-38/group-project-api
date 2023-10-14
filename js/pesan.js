@@ -23,6 +23,13 @@ function getRandomItem(arr) {
   return item;
 }
 
+const rupiah = (number) => {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+  }).format(number);
+};
+
 getKonselor().then((data) => {
   data.map((konselor) => {
     const konselorImage = [
@@ -40,8 +47,10 @@ getKonselor().then((data) => {
                     alt="singleminded"
                   />
                   <div class="card-body">
-                    <h5 class="card-title">${konselor.name}</h5>
-                    <p class="card-text">Rp. ${konselor.harga} / hour</p>
+                    <h5 class="card-title text-truncate">${konselor.name}</h5>
+                    <p class="card-text">${rupiah(
+                      Math.round(konselor.harga * 100)
+                    )} / hour</p>
                     <div class="rating">
                     ${(() => {
                       let b = Math.floor(Math.random() * 5);
