@@ -31,7 +31,14 @@ const rupiah = (number) => {
 };
 
 function clickCard(data) {
-  console.log((data));
+  localStorage.setItem("konselor", JSON.stringify(data));
+  window.location.href = "/detail-konselor.html";
+  // console.log(data);
+}
+
+let konselor = localStorage.getItem("konselor");
+if (konselor) {
+  localStorage.removeItem("konselor");
 }
 
 getKonselor().then((data) => {
@@ -41,12 +48,19 @@ getKonselor().then((data) => {
       "https://img.freepik.com/free-photo/portrait-smiling-young-woman-doctor-healthcare-medical-worker-pointing-fingers-left-showing-clini_1258-88108.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1696982400&semt=ais",
       "https://st2.depositphotos.com/3889193/8015/i/450/depositphotos_80150956-Confident-female-doctor-at-office-desk.jpg",
     ];
+
+    const image = getRandomItem(konselorImage);
+
+    const dataWithImage = { image, ...konselor };
+
     const konselorCard = `
             <div class="col-12 col-md-3">
-              <div class="card shadow-lg" style="cursor: pointer;" onclick='clickCard(${JSON.stringify(konselor)})'>
+              <div class="card shadow-lg" style="cursor: pointer;" onclick='clickCard(${JSON.stringify(
+                dataWithImage
+              )})'>
                 <div class="card-content">
                   <img
-                    src="${getRandomItem(konselorImage)}"
+                    src="${image}"
                     class="card-img-top px-3 pt-3 rounded-5 ratio-1x1 object-fit-contain"
                     alt="singleminded"
                   />
