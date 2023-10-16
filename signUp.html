@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/signUp.css">
+    <title>InCare - Sign up</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;700&family=Roboto:wght@300;400&family=Rubik&display=swap');
+      </style>
+</head>
+<body>
+    <h1>Sign up</h1><br>
+    <div class="container">
+      <div class="field">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="img/Signed insurance policy.png" class="img-fluid" width="500" alt="gambar">
+            </div>
+           <div class="col-md-6" >
+            <form id="registration-form" method="post">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Nama Pengguna</label>
+                    <input type="text" class="form-control" name="name" id="username" placeholder="Masukkan nama pengguna">
+                  </div>
+                  <span class="error username error">
+                    <i class="bx bx-error-circle error-icon"></i>
+                    <p class="error-text">Masukkan username valid</p>
+                  </span>
+
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Masukkan email">
+                </div>
+                <span class="error email error">
+                  <i class="bx bx-error-circle error-icon"></i>
+                  <p class="error-text">Masukkan email valid</p>
+                </span>
+
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan password">
+                    <span class="input-group-text show-hide-icon" id="password-toggle">
+                      <i class="bx bx-show"></i>
+                    </span>
+                </div>
+                </div>
+                <span class="error password error">
+                  <i class="bx bx-error-circle error-icon"></i>
+                  <p class="error-text">Masukkan minimal 8 karakter dengan nomor, simbol, huruf kecil dan besar</p>
+                </span>
+
+                <div class="mb-3">
+                    <label for="confirm" class="form-label">Konfirmasi Password</label>
+                    <div class="input-group">
+                      <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Masukkan konfirmasi password">
+                      <span class="input-group-text show-hide-icon" id="confirm-toggle">
+                        <i class="bx bx-show"></i>
+                      </span>
+                    </div>
+                </div>
+                <span class="error confirm error">
+                  <i class="bx bx-error-circle error-icon"></i>
+                  <p class="error-text">Password tidak cocok
+                  </p>
+                </span>
+
+                <button type="submit" id="submit-form">Sign up</button>
+              </form>
+             <br>
+              <h6>Sudah punya akun?<span style="color: rgb(2, 116, 255);"><a href="indexLogin.html">Login</a></span></h6>
+           </div> 
+        </div> 
+      </div> 
+    </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <script src="/js/signUp.js"></script>
+    </body>
+</html>
