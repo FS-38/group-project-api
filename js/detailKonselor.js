@@ -50,6 +50,25 @@ function getRandomItem(arr) {
   return item;
 }
 
+function getFormattedDateAfterDays(days) {
+  const today = new Date();
+  const targetDate = new Date(today);
+  targetDate.setDate(today.getDate() + days);
+
+  const dd = String(targetDate.getDate()).padStart(2, "0");
+  const mm = String(targetDate.getMonth() + 1).padStart(2, "0"); // January is 0!
+  const yyyy = targetDate.getFullYear();
+
+  return `${dd}/${mm}/${yyyy}`;
+}
+
+// ubah tanggal menjadi h+1 - h+4
+document.getElementById("tgl1").innerHTML = getFormattedDateAfterDays(0);
+document.getElementById("tgl2").innerHTML = getFormattedDateAfterDays(1);
+document.getElementById("tgl3").innerHTML = getFormattedDateAfterDays(2);
+document.getElementById("tgl4").innerHTML = getFormattedDateAfterDays(3);
+// ubah tanggal
+
 function clickCard(data) {
   localStorage.setItem("konselor", JSON.stringify(data));
   window.location.href = "/detail-konselor.html";
@@ -68,7 +87,7 @@ let konselorWrapper = document.querySelector(".carousel-inner");
 getKonselor()
   .then((data) => {
     konselorWrapper.innerHTML = "";
-    console.log(data);
+    // console.log(data);
     data.map((konselor, index) => {
       const konselorImage = [
         "https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-happy-young-doctor-in-his-clinic-royalty-free-image-1661432441.jpg",
@@ -141,3 +160,50 @@ let konselorHarga = document.getElementById("harga-konselor");
 konselorImg.src = konselorData.image;
 konselorNama.innerHTML = konselorData.name;
 konselorHarga.innerHTML = rupiah(konselorData.harga * 100) + " / hour";
+
+// click modal
+let konselor = localStorage.getItem("konselor");
+konselor = JSON.parse(konselor);
+
+let modal = document.getElementById("lanjutkan");
+
+modal.addEventListener("click", function () {
+  let tglKonseling = localStorage.getItem("tglKonseling");
+
+  let metodeKonseling = document.querySelector(
+    "input[name=metode_konsultasi]:checked"
+  );
+
+  if (metodeKonseling == null) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Please choose your consultation method!",
+    });
+  } else {
+    let payment = {
+      tglKonseling,
+      ...konselor,
+      metodeKonseling: metodeKonseling.value,
+      hargaRP: konselor.harga * 100,
+    };
+    localStorage.setItem("payment", JSON.stringify(payment));
+    localStorage.removeItem("tglKonseling");
+    // console.log(metodeKonseling.value);
+  }
+});
+
+const simpanTanggal = (event) => {
+  const id = event.target.id;
+  let tgl;
+  if (id === "pesan1") {
+    tgl = document.getElementById("tgl1").innerHTML;
+  } else if (id === "pesan2") {
+    tgl = document.getElementById("tgl2").innerHTML;
+  } else if (id === "pesan3") {
+    tgl = document.getElementById("tgl3").innerHTML;
+  } else if (id === "pesan4") {
+    tgl = document.getElementById("tgl4").innerHTML;
+  }
+  localStorage.setItem("tglKonseling", tgl);
+};
