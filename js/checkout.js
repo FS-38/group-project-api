@@ -28,6 +28,7 @@ function confirmation() {
     confirmButtonText: "Ya, sudah benar!",
   }).then((result) => {
     if (result.isConfirmed) {
+      localStorage.removeItem("payment");
       window.location.href = "./success.html";
     }
   });
@@ -42,8 +43,11 @@ const rupiah = (number) => {
 
 let dataPayment = localStorage.getItem("payment");
 dataPayment = JSON.parse(dataPayment);
+let user = localStorage.getItem("user");
+user = JSON.parse(user);
 console.log(dataPayment);
 
+const nama = document.getElementById("name");
 const gambar = document.getElementById("img");
 const namaKonselor = document.getElementById("namadokter");
 const harga = document.getElementById("hargadokter");
@@ -53,6 +57,7 @@ const hargaAfter = document.getElementById("harga-after");
 const hargaAsli2 = document.getElementById("harga-asli2");
 const hargaAfter2 = document.getElementById("harga-after2");
 
+nama.value = user.name;
 gambar.src = dataPayment.image;
 namaKonselor.innerHTML = dataPayment.name;
 harga.innerHTML = "@" + rupiah(dataPayment.hargaRP) + " / hour";

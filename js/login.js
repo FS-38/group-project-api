@@ -63,12 +63,13 @@ document.addEventListener("DOMContentLoaded", function() {
           console.log('Data yang ditemukan:', matchingUser);
       
           // Save login status
-          localStorage.setItem('isLoggedIn', 'true');
-          localStorage.setItem('email', email);
-          localStorage.setItem('password', password);
+          localStorage.setItem('user', JSON.stringify(matchingUser));
+          // localStorage.setItem('isLoggedIn', 'true');
+          // localStorage.setItem('email', email);
+          // localStorage.setItem('password', password);
     
-          // Redirect to counseling page
-          window.location.href = "https://github.com/FS-38/group-project-api/blob/feature/pesan-konsel/pesan.html";
+          // // Redirect to counseling page
+          window.location.href = "./index.html";
         } else {
           console.log('Tidak ada data yang cocok');
         }

@@ -150,7 +150,7 @@ let konselorData = localStorage.getItem("konselor");
 konselorData = JSON.parse(konselorData);
 
 if (!konselorData) {
-  window.location.href = "/pesan.html";
+  window.location.href = "/index.html";
 }
 
 // console.log(konselorData);
