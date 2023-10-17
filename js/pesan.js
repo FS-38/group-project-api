@@ -32,7 +32,7 @@ const rupiah = (number) => {
 
 function clickCard(data) {
   localStorage.setItem("konselor", JSON.stringify(data));
-  window.location.href = "/detail-konselor.html";
+  window.location.href = "./detail-konselor.html";
   // console.log(data);
 }
 
