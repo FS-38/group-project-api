@@ -79,9 +79,9 @@
 
                 <h5 class="mt-4">Servis</h5>
 
-                <div class="d-flex flex-wrap">
+                <div class="d-flex flex-wrap align-items-center">
                   <div
-                    class="p-3 flex-shrink-1 align-items-center m-0 m-md-auto"
+                    class="p-3 flex-shrink-1 align-items-center m-0 "
                   >
                     <img
                       id="img"
@@ -95,7 +95,7 @@
                   <!-- detail konselor -->
                   <div class="p-3 flex-grow-1">
                     <p>
-                      Konseling
+                      Konseling -
                       <span id="namadokter" class="text-truncate"
                         >Dr. Algonza Dewangga</span
                       >
@@ -110,6 +110,7 @@
                           type="text"
                           class="form-control"
                           readonly="readonly"
+                          id="tgl-konseling"
                           value="21-12-2023"
                         />
                         <div class="form-control-icon">
@@ -130,9 +131,9 @@
                     </div>
                   </div>
 
-                  <div class="p-3 flex-shrink-1 m-0 m-md-auto">
-                    <del>Rp. 60.000</del>
-                    <p>Rp. 55.000</p>
+                  <div class="p-3 flex-shrink-1 m-0 ">
+                    <del id="harga-asli">Rp. 60.000</del>
+                    <p id="harga-after">Rp. 55.000</p>
                   </div>
                 </div>
               </div>
@@ -149,7 +150,7 @@
 
                 <div class="d-flex justify-content-between">
                   <p class="font-semibold">subtotal</p>
-                  <p>Rp60.000</p>
+                  <p id="harga-asli2">Rp60.000</p>
                 </div>
                 <div class="d-flex justify-content-between">
                   <p class="font-semibold">Discount user baru</p>
@@ -160,7 +161,7 @@
 
                 <div class="d-flex justify-content-between mb-3">
                   <p class="font-semibold">Grand Total</p>
-                  <p>Rp55.000</p>
+                  <p id="harga-after2">Rp55.000</p>
                 </div>
 
                 <div class="form-check">
@@ -213,6 +214,5 @@
     <!-- Need: Apexcharts -->
     <script src="./css/pesan-bayar/assets/extensions/apexcharts/apexcharts.min.js"></script>
     <script src="./css/pesan-bayar/assets/static/js/pages/dashboard.js"></script>
-    <script src="./js/detailKonselor.js"></script>
   </body>
 </html>
