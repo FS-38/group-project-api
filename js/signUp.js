@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => {
         console.log('Registrasi berhasil:', data);
         // Redirect to counselling page
-        window.location.href = 'pesan.html';
+        window.location.href = 'https://github.com/FS-38/group-project-api/blob/feature/pesan-konsel/pesan.html';
     })
     .catch(error => {
         console.error('Registrasi gagal:', error);

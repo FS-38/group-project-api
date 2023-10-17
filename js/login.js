@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
           localStorage.setItem('password', password);
     
           // Redirect to counseling page
-          window.location.href = 'pesan.html';
+          window.location.href = "https://github.com/FS-38/group-project-api/blob/feature/pesan-konsel/pesan.html";
         } else {
           console.log('Tidak ada data yang cocok');
         }
