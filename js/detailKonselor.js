@@ -189,6 +189,8 @@ modal.addEventListener("click", function () {
     };
     localStorage.setItem("payment", JSON.stringify(payment));
     localStorage.removeItem("tglKonseling");
+    window.location.href = "./checkout.html";
+
     // console.log(metodeKonseling.value);
   }
 });
