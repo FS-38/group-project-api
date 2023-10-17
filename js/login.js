@@ -28,16 +28,38 @@ document.addEventListener("DOMContentLoaded", function() {
     
         // Input validation
         let validationFailed = false;
+
+        // Email validation
+        const emailErrorElement = document.querySelector(".error.email");
         if (!email) {
             validationFailed = true;
-            validateInput("email", email, "Masukkan email valid");
+            emailErrorElement.style.display = "flex";
+            emailErrorElement.querySelector(".error-text").textContent = "Masukkan email yang valid";
+        } else {
+            emailErrorElement.style.display = "none";
         }
     
+        // Password validation
+        const passwordErrorElement = document.querySelector(".error.password");
         if (!password) {
             validationFailed = true;
-            validateInput("password", password, "Masukkan minimal 8 karakter dengan nomor, simbol, huruf kecil dan besar");
+            passwordErrorElement.style.display = "flex";
+            passwordErrorElement.querySelector(".error-text").textContent = "Masukkan minimal 8 karakter dengan nomor, simbol, huruf kecil dan besar";
+        } else {
+            passwordErrorElement.style.display = "none";
         }
-    
+
+        // delete error messages
+        const errorMessageElement = document.getElementById("error-message");
+        if (errorMessageElement) {
+            errorMessageElement.style.display = "none";
+            errorMessageElement.textContent = "";
+        }
+
+        if (validationFailed) {
+          return;
+      }
+
       fetch('https://6526adf4917d673fd76cc91f.mockapi.io/api/users', {
         method: 'GET',
         headers:{
@@ -71,21 +93,13 @@ document.addEventListener("DOMContentLoaded", function() {
           window.location.href = "https://github.com/FS-38/group-project-api/blob/feature/pesan-konsel/pesan.html";
         } else {
           console.log('Tidak ada data yang cocok');
+          // Emaill or password not found
+          const errorMessageElement = document.getElementById("error-message");  
+          errorMessageElement.style.display = "block";
+          errorMessageElement.textContent = "Email atau password salah. Silakan coba lagi!";
         }
        })
-    
        .catch((error) => {
         console.error('Terjadi kesalahan', error);
        });
-    
-       function validateInput(inputId, value, errorMessage) {
-        const errorElement = document.querySelector(`.error.${inputId}`);
-      
-        if(!value) {
-          errorElement.style.display = "flex";
-          errorElement.querySelector(".error-text").textContent = errorMessage;
-        } else {
-        errorElement.style.display = "none";
-        }
-      }
-    });
+      });
