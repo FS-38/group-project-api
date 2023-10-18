@@ -10,6 +10,12 @@ body {
     padding: 50px 90px;
 }
 
+@media screen and (max-width: 1281px) {
+    body {
+        padding: 20px 30px;
+    }
+}
+
 h1 {
     color: rgb(0, 94, 255);
     font-weight: bold;

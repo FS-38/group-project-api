@@ -9,6 +9,12 @@ body {
     padding: 50px 90px;
 }
 
+@media screen and (max-width: 1281px) {
+    body {
+        padding: 0;
+    }
+}
+
 .form-box {
     border: 1px solid #6c6c6c;
     padding: 20px;
