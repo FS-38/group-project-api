@@ -1,5 +1,6 @@
 const community = document.getElementById("community-wrapper");
 const userLogin = JSON.parse(localStorage.getItem("user"));
+// console.log();
 const getStoryAndDisplay = async () => {
   const response = await fetch(
     "https://6526adf4917d673fd76cc91f.mockapi.io/api/story"
@@ -13,7 +14,7 @@ const getStoryAndDisplay = async () => {
 
   // Tambahkan cerita ke elemen "community-wrapper"
   data.forEach((story) => {
-    const isLiked = story.userLike.find((data) => data === story.user.userId);
+    const isLiked = story.userLike.find((data) => data === userLogin.id);
     const likeButton = document.createElement("button");
     likeButton.classList.add("btn", "like-button");
 
@@ -97,7 +98,7 @@ document
       if (result.isConfirmed) {
         const inputPost = document.getElementById("input-post");
         postStory({ content: inputPost.value });
-        inputPost.value = "";  
+        inputPost.value = "";
       }
     });
 
