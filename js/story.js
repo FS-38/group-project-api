@@ -1,5 +1,5 @@
 const community = document.getElementById("community-wrapper");
-
+const userLogin = JSON.parse(localStorage.getItem("user"));
 const getStoryAndDisplay = async () => {
   const response = await fetch(
     "https://6526adf4917d673fd76cc91f.mockapi.io/api/story"
@@ -35,7 +35,7 @@ const getStoryAndDisplay = async () => {
           <h5 class="card-title">${story.user.name}</h5>
           <p class="card-text">${story.content}</p>
         </div>
-        <div class="col-1 d-flex flex-column align-items-center">
+        <div class="col-2 d-flex flex-column align-items-center">
           ${likeButton.outerHTML}
           <span>${story.userLike.length}</span>
         </div>
@@ -61,8 +61,8 @@ const postStory = async ({ content }) => {
     method: "POST",
     body: JSON.stringify({
       user: {
-        userId: 1,
-        name: "Muhamad Saman",
+        userId: userLogin.id,
+        name: userLogin.username,
       },
       content,
     }),
@@ -93,9 +93,9 @@ const likeHandler = async (story, isLiked) => {
   let data = [];
 
   if (isLiked) {
-    data = story.userLike.filter((data) => data !== story.user.userId);
+    data = story.userLike.filter((data) => data !== userLogin.id);
   } else {
-    data = [...story.userLike, story.user.userId];
+    data = [...story.userLike, userLogin.id];
   }
 
   const response = await fetch(
@@ -119,3 +119,8 @@ const likeHandler = async (story, isLiked) => {
 };
 
 getStoryAndDisplay();
+
+document.getElementById("logout").addEventListener("click", () => {
+  localStorage.clear();
+  window.location.href = "./indexLogin.html";
+});

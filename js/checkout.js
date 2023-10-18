@@ -57,7 +57,7 @@ const hargaAfter = document.getElementById("harga-after");
 const hargaAsli2 = document.getElementById("harga-asli2");
 const hargaAfter2 = document.getElementById("harga-after2");
 
-nama.value = user.name;
+nama.value = user.username;
 gambar.src = dataPayment.image;
 namaKonselor.innerHTML = dataPayment.name;
 harga.innerHTML = "@" + rupiah(dataPayment.hargaRP) + " / hour";

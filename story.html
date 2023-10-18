@@ -7,7 +7,7 @@
 
     <link
       rel="shortcut icon"
-      href="../css/story/assets/compiled/svg/favicon.svg"
+      href="../css/mazer/assets/compiled/svg/favicon.svg"
       type="image/x-icon"
     />
     <link
@@ -16,27 +16,29 @@
       type="image/png"
     />
 
-    <link rel="stylesheet" href="../css/story/assets/compiled/css/app.css" />
+    <link rel="stylesheet" href="../css/mazer/assets/compiled/css/app.css" />
     <link
       rel="stylesheet"
-      href="../css/story/assets/compiled/css/app-dark.css"
+      href="../css/mazer/assets/compiled/css/app-dark.css"
     />
-    <link rel="stylesheet" href="../css/story/assets/compiled/css/iconly.css" />
-    <link rel="stylesheet" href="../css/story/style.css" />
+    <link rel="stylesheet" href="../css/mazer/assets/compiled/css/iconly.css" />
+    <link rel="stylesheet" href="../css/mazer/style.css" />
+    <script src="./js/auth-user.js"></script>
   </head>
 
   <body>
-    <script src="../css/story/assets/static/js/initTheme.js"></script>
+    <script src="../css/mazer/assets/static/js/initTheme.js"></script>
     <div id="app">
       <div id="sidebar">
         <div class="sidebar-wrapper active">
           <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
               <div class="logo">
-                <a href="pesan.html"
+                <a href="index.html"
                   ><img
-                    src="../css/story/assets/compiled/svg/logo.svg"
+                    src="./img/Incare_bg.png"
                     alt="Logo"
+                    style="width: 130px; height: auto"
                     srcset=""
                 /></a>
               </div>
@@ -108,12 +110,28 @@
           <div class="sidebar-menu">
             <ul class="menu">
               <li class="sidebar-title">Menu</li>
-
+              <li class="sidebar-item">
+                <a href="index.html" class="sidebar-link">
+                  <i class="bi bi-calendar-check-fill"></i>
+                  <span>Pesan Konselor</span>
+                </a>
+              </li>
               <li class="sidebar-item active">
-                <a href="pesan.html" class="sidebar-link">
+                <a href="story.html" class="sidebar-link">
                   <i class="bi bi-broadcast-pin"></i>
                   <span>Community</span>
                 </a>
+              </li>
+              <li class="sidebar-item">
+                <button
+                  id="logout"
+                  style="width: 100%"
+                  href="story.html"
+                  class="sidebar-link btn"
+                >
+                  <i class="bi bi-box-arrow-left"></i>
+                  <span>Logout</span>
+                </button>
               </li>
             </ul>
           </div>
@@ -133,8 +151,12 @@
             <section class="row" style="margin-left: 0">
               <div class="card" style="width: 60rem; height: 100px">
                 <form>
-                  <div class="card-body row justify-content-between mt-1">
-                    <h5 class="card-title col-1">MS</h5>
+                  <div class="card-body row gap-3 mt-1">
+                    <!-- <span class="card-title col-1">MS</h5> -->
+                    <!-- <div class="col-1">
+                      <img src="./img/avatar.png" width="20px" />
+                    </div> -->
+
                     <input
                       id="input-post"
                       name="input-post"
@@ -148,7 +170,7 @@
                       "
                       placeholder="Apa cerita yang ingin anda bagikan hari ini?"
                     />
-                    <div class="col-1">
+                    <div class="col-2">
                       <button type="submit" class="btn btn-primary">
                         <i class="bi bi-send-fill"></i>
                       </button>
@@ -184,13 +206,14 @@
       </div>
     </div>
     <script src="../js/story.js" type="module"></script>
-    <script src="../css/story/assets/static/js/components/dark.js"></script>
-    <script src="../css/story/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 
-    <script src="../css/story/assets/compiled/js/app.js"></script>
+    <script src="../css/mazer/assets/static/js/components/dark.js"></script>
+    <script src="../css/mazer/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+
+    <script src="../css/mazer/assets/compiled/js/app.js"></script>
 
     <!-- Need: Apexcharts -->
-    <script src="../css/story/assets/extensions/apexcharts/apexcharts.min.js"></script>
-    <script src="../css/story/assets/static/js/pages/dashboard.js"></script>
+    <script src="../css/mazer/assets/extensions/apexcharts/apexcharts.min.js"></script>
+    <script src="../css/mazer/assets/static/js/pages/dashboard.js"></script>
   </body>
 </html>
