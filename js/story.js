@@ -1,17 +1,20 @@
 const community = document.getElementById("community-wrapper");
 const userLogin = JSON.parse(localStorage.getItem("user"));
+// console.log();
 const getStoryAndDisplay = async () => {
   const response = await fetch(
     "https://6526adf4917d673fd76cc91f.mockapi.io/api/story"
   );
   const data = await response.json();
+  // sorting data dari terbaru
+  data.sort((a, b) => b.id - a.id);
 
   // Bersihkan konten HTML pada elemen "community-wrapper"
   community.innerHTML = "";
 
   // Tambahkan cerita ke elemen "community-wrapper"
   data.forEach((story) => {
-    const isLiked = story.userLike.find((data) => data === story.user.userId);
+    const isLiked = story.userLike.find((data) => data === userLogin.id);
     const likeButton = document.createElement("button");
     likeButton.classList.add("btn", "like-button");
 
@@ -79,12 +82,25 @@ document
   .getElementsByTagName("form")[0]
   .addEventListener("submit", async (event) => {
     event.preventDefault();
-    const isPost = confirm("Do you really want to post this story?");
-    if (isPost) {
-      const inputPost = document.getElementById("input-post");
-      await postStory({ content: inputPost.value });
-      inputPost.value = "";
-    }
+    // const isPost = confirm("Do you really want to post this story?");
+    // if (isPost) {
+    //   const inputPost = document.getElementById("input-post");
+    //   await postStory({ content: inputPost.value });
+    //   inputPost.value = "";
+    // }
+
+    Swal.fire({
+      title: "Do you really want to post this story?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const inputPost = document.getElementById("input-post");
+        postStory({ content: inputPost.value });
+        inputPost.value = "";
+      }
+    });
 
     // Kirim cerita baru
   });
