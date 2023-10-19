@@ -38,30 +38,31 @@ submitForm.addEventListener("click", (event) => {
   let validationFailed = false;
   if (!name) {
     validationFailed = true;
-    validateInput("username", name, "Masukkan username valid");
+    validateInput("username", false, "Masukkan username valid");
   }
 
   if (!email) {
     validationFailed = true;
-    validateInput("email", email, "Masukkan email valid");
+    validateInput("email", false, "Masukkan email valid");
   }
 
   if (!password) {
     validationFailed = true;
     validateInput(
       "password",
-      password,
+      false,
       "Masukkan minimal 8 karakter dengan nomor, simbol, huruf kecil dan besar"
     );
   }
 
   if (!confirm) {
     validationFailed = true;
-    validateInput("confirm", confirm, "Konfirmasi password harus diisi");
+    validateInput("confirm", false, "Konfirmasi password harus diisi");
   }
   if (password !== confirm) {
     validationFailed = true;
-    validateInput("Kedua Password Tidak Cocok");
+    validateInput("confirm", false, "Kedua Password Tidak Cocok");
+    console.log("eror bang");
   }
 
   if (validationFailed) {
