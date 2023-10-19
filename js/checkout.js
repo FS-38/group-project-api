@@ -1,3 +1,9 @@
+let dataPayment = localStorage.getItem("payment");
+dataPayment = JSON.parse(dataPayment);
+let user = localStorage.getItem("user");
+user = JSON.parse(user);
+const visibility = document.getElementById("visibility");
+
 function confirmation() {
   const checkbox = document.getElementById("kebijakan-privacy");
   const nomorhp = document.getElementById("nomorhp");
@@ -28,8 +34,34 @@ function confirmation() {
     confirmButtonText: "Ya, sudah benar!",
   }).then((result) => {
     if (result.isConfirmed) {
-      localStorage.removeItem("payment");
-      window.location.href = "./success.html";
+      const paymentFull = {
+        userId: user.id,
+        konselorName: dataPayment.name,
+        tanggal: dataPayment.tglKonseling,
+        metodeKonsultasi: dataPayment.metodeKonseling,
+        hargaTotal: dataPayment.hargaRP - 5000,
+        visibility: visibility.value,
+      };
+
+      // post data to backend
+      fetch("https://6526bf02917d673fd76cf235.mockapi.io/api/pemesanan", {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(paymentFull),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        })
+        .finally(() => {
+          localStorage.removeItem("payment");
+          window.location.href = "./success.html";
+        });
     }
   });
 }
@@ -41,10 +73,6 @@ const rupiah = (number) => {
   }).format(number);
 };
 
-let dataPayment = localStorage.getItem("payment");
-dataPayment = JSON.parse(dataPayment);
-let user = localStorage.getItem("user");
-user = JSON.parse(user);
 console.log(dataPayment);
 
 const nama = document.getElementById("name");
