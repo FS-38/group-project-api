@@ -91,3 +91,8 @@ getKonselor().then((data) => {
     konselorWrapper.innerHTML += konselorCard;
   });
 });
+
+document.getElementById("logout").addEventListener("click", () => {
+  localStorage.clear();
+  window.location.href = "./indexLogin.html";
+});
